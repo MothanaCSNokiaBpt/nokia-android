@@ -29,17 +29,14 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y \
             build-essential git zip unzip \
-            libffi-dev libssl-dev \
-            libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev \
-            libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev \
-            zlib1g-dev libgstreamer1.0-dev gstreamer1.0-plugins-base \
-            gstreamer1.0-plugins-good autoconf libtool pkg-config cmake \
+            libffi-dev libssl-dev zlib1g-dev \
+            autoconf libtool pkg-config cmake \
             ninja-build ccache lld
 
       - name: Install buildozer and cython
         run: pip install buildozer cython==0.29.33
 
-      - name: Cache buildozer global directory
+      - name: Cache buildozer directory
         uses: actions/cache@v4
         with:
           path: ~/.buildozer
